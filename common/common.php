@@ -53,17 +53,9 @@ function show_html_head($title) {
     <meta charset="UTF-8">
 	<title><?php echo $title; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>-->
-<!--	<link rel="stylesheet" href="../common/jquery.mobile-1.3.2.min.css" />
-	<script src="../common/jquery-1.11.3.min.js"></script>
-	<script src="../common/jquery.mobile-1.3.2.min.js"></script> -->
-<!--	<link rel="stylesheet" href="./common/jquery.mobile-1.4.5.min.css" />
-	<script src="./common/jquery-2.2.0.min.js"></script>
-	<script src="./common/jquery.mobile-1.4.5.min.js"></script> -->
 	<link rel="stylesheet" href="node_modules/jquery-mobile/dist/jquery.mobile.min.css" />
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/jquery-migrate/dist/jquery-migrate.min.js"></script>
 	<script src="node_modules/jquery-mobile/dist/jquery.mobile.min.js"></script>
 </head>
 
