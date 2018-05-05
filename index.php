@@ -19,7 +19,7 @@ function ss_width($sq){
   } elseif ($sq == 1 or $sq == 2){
     return 0.2;
   } elseif ($sq >= 3 and $sq <= 9){
-    return 0.4;
+    return 0.5;
   } elseif ($sq >= 10 and $sq <= 14){
     return 0.7;
   } elseif ($sq >= 15 and $sq <= 19){
@@ -45,26 +45,26 @@ function ss_width($sq){
         $modem_ini = parse_ini_file($configfile, TRUE);
 ?>
 
-        <h3>modem device</h3>
-        <p>modem name: <?= $modem_ini[model][name] ?></p>
+        <h2>modem device</h2>
+        <p>product: <b><?= $modem_ini[model][name] ?></b></p>
 
-        <h3>sim info</h3>
-        <p>vendor name: <?= $modem_ini[IMSI][carrier] ?></p>
-        <p>IMSI: <?= $modem_ini[IMSI][imsi] ?></p>
+        <h2>sim info</h2>
+        <p>vendor: <b><?= $modem_ini[IMSI][carrier] ?></b></p>
+        <p>IMSI: <b><?= $modem_ini[IMSI][imsi] ?></b></p>
 
-        <h3>connecting  info</h3>
-        <p>operator: <?= mccmnc::operator($modem_ini[carrier][cop]) ?></p>
-        <p>country: <?= mccmnc::country($modem_ini[carrier][mcc]) ?></p>
+        <h2>connecting  info</h2>
+        <p>operator: <b><?= mccmnc::operator($modem_ini[carrier][cop]) ?></b></p>
+        <p>country: <b><?= mccmnc::country($modem_ini[carrier][mcc]) ?></b></p>
 
-        <h3>connecting  quality</h3>
+        <h2>connecting  quality</h2>
         <span class="fa-stack fa-lg">
         <i class="fa fa-signal fa-stack-1x" style="opacity:.3"></i>
         <i class="fa fa-signal fa-stack-1x" style="overflow:hidden; width:<?= ss_width($modem_ini[CSQ][csq])?>em; margin-left:0.4em;"></i>
-        <!-- 0.0em 0.2em 0.4em 0.7em 0.9em 1.2em -->
+        <!-- 0.0em 0.2em 0.5em 0.7em 0.9em 1.2em -->
         </span>
-        <p>signal quality: <?= $modem_ini[CSQ][csq] ?></p>
-        <p>rssi: <?= $modem_ini[CSQ][rssi] ?></p>
-        <p>condition: <?= $modem_ini[CSQ][condition] ?></p>
+        <p>signal quality: <b><?= $modem_ini[CSQ][csq] ?>/30</b></p>
+        <p>rssi: <b><?= $modem_ini[CSQ][rssi] ?></b></p>
+        <p>condition: <b><?= $modem_ini[CSQ][condition] ?></b></p>
 
 <?php endif; ?>
 </div><!-- <div data-role="content" data-theme="c" class="no-cache">-->
