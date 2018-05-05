@@ -57,6 +57,7 @@ function show_html_head($title) {
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="node_modules/jquery-migrate/dist/jquery-migrate.min.js"></script>
 	<script src="node_modules/jquery-mobile/dist/jquery.mobile.min.js"></script>
+	<link href="../fontawesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
 </head>
 
 <?php  

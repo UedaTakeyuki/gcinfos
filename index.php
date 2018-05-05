@@ -6,6 +6,28 @@ define("TITLE","Info");
 # ヘッダの表示
 error_log('['.basename(__FILE__).':'.__LINE__.']'.' *** RENDERING START ***');    
 show_html_head(TITLE);
+
+/**
+ * Make widht of mask on fa-signal.
+ *
+ * @param int $sq sq value of modem.
+ * @return int width (.em).
+ */
+function ss_width($sq){
+  if ($sq == 0){
+    return 0.0;
+  } elseif ($sq == 1 or $sq == 2){
+    return 0.2;
+  } elseif ($sq >= 3 and $sq <= 9){
+    return 0.4;
+  } elseif ($sq >= 10 and $sq <= 14){
+    return 0.7;
+  } elseif ($sq >= 15 and $sq <= 19){
+    return 0.9;
+  } elseif ($sq >= 20 and $sq <= 30){
+    return 1.2;
+  }
+}
 ?>
 
 <body>
@@ -35,6 +57,11 @@ show_html_head(TITLE);
         <p>country: <?= mccmnc::country($modem_ini[carrier][mcc]) ?></p>
 
         <h3>connecting  quality</h3>
+        <span class="fa-stack fa-lg">
+        <i class="fa fa-signal fa-stack-1x" style="opacity:.3"></i>
+        <i class="fa fa-signal fa-stack-1x" style="overflow:hidden; width:<?= ss_width($modem_ini[CSQ][csq])?>em; margin-left:0.4em;"></i>
+        <!-- 0.0em 0.2em 0.4em 0.7em 0.9em 1.2em -->
+        </span>
         <p>signal quality: <?= $modem_ini[CSQ][csq] ?></p>
         <p>rssi: <?= $modem_ini[CSQ][rssi] ?></p>
         <p>condition: <?= $modem_ini[CSQ][condition] ?></p>
