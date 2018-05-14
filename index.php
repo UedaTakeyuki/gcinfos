@@ -52,11 +52,11 @@ function ss_width($sq){
         <p>vendor: <b><?= $modem_ini[IMSI][carrier] ?></b></p>
         <p>IMSI: <b><?= $modem_ini[IMSI][imsi] ?></b></p>
 
-        <h2>connecting  info</h2>
+        <h2>connection  info</h2>
         <p>operator: <b><?= mccmnc::operator($modem_ini[carrier][cop]) ?></b></p>
         <p>country: <b><?= mccmnc::country($modem_ini[carrier][mcc]) ?></b></p>
 
-        <h2>connecting  quality</h2>
+        <h2>radio  quality</h2>
         <span class="fa-stack fa-lg">
         <i class="fa fa-signal fa-stack-1x" style="opacity:.3"></i>
         <i class="fa fa-signal fa-stack-1x" style="overflow:hidden; width:<?= ss_width($modem_ini[CSQ][csq])?>em; margin-left:0.4em;"></i>
