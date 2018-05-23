@@ -49,11 +49,11 @@ function ss_width($sq){
   <h2>device</h2>
   <p>product: <b><?= $modem_ini[model][name] ?></b></p>
 
-  <h2>sim info</h2>
+  <h2>sim</h2>
   <p>vendor: <b><?= $modem_ini[IMSI][carrier] ?></b></p>
   <p>IMSI: <b><?= $modem_ini[IMSI][imsi] ?></b></p>
 
-  <h2>connection  info</h2>
+  <h2>connection</h2>
   <p>operator: <b><?= mccmnc::operator($modem_ini[carrier][cop]) ?></b></p>
   <p>country: <b><?= mccmnc::country($modem_ini[carrier][mcc]) ?></b></p>
 
@@ -73,9 +73,18 @@ function ss_width($sq){
 
   <h1>Board</h1><hr>
   <p>serial id: <b><?= `python -m piserialnumber` ?></b></p>
+<!--  <p>CPU temperatur: <b><?= shell_exec('echo "scale=3; `cat /sys/class/thermal/thermal_zone0/temp` / 1000" | bc -l') ?></b></p>  -->
+  <p>CPU temperatur: <b><?= `echo "scale=3; \`cat /sys/class/thermal/thermal_zone0/temp\` / 1000" | bc -l` ?></b></p> 
 
   <h1>Software</h1><hr>
-  <p>version: <b><?= `cat /boot/gc_issue.txt | grep -e "^-" | tail -n 1 | tr -d "\- "` ?></b></p>
+  <h2>version</h2>
+  <p>general: <b><?= `cat /boot/gc_issue.txt | grep -e "^-" | tail -n 1 | tr -d "\- "` ?></b></p>
+  <p>slider: <b><?= `git --git-dir=/home/pi/SCRIPT/slider2/.git log -n 1 --format=%ad` ?></b></p>
+  <p>console: <b><?= `git --git-dir=/var/www/html/.git log -n 1 --format=%ad` ?></b></p>
+  <p>finder: <b><?= `git --git-dir=/var/www/html/SCRIPT/gc13/.git log -n 1 --format=%ad` ?></b></p>
+  <p>infos: <b><?= `git --git-dir=/var/www/html/SCRIPT/gcinfos/.git log -n 1 --format=%ad` ?></b></p>
+  <p>modem: <b><?= `git --git-dir=/home/pi/modem/.git log -n 1 --format=%ad` ?></b></p>
+  <p>udev rules: <b><?= `git --git-dir=/etc/udev/rules.d/.git log -n 1 --format=%ad` ?></b></p>
 
 </div><!-- <div data-role="content" data-theme="c" class="no-cache">-->
 
